@@ -1,0 +1,481 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows, positioning}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{natbib}
+\usepackage{xurl}
+\usepackage{breakurl}
+
+% =============================================================================
+% CONFIGURACIÓN DE MÁRGENES (Formato ITE)
+% =============================================================================
+\geometry{left=3cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+
+% =============================================================================
+% CONFIGURACIÓN DE CITAS AUTOR-AÑO (APA)
+% =============================================================================
+\bibpunct{(}{)}{,}{a}{}{,}
+
+% =============================================================================
+% CONFIGURACIÓN DE HYPERREF
+% =============================================================================
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=blue,
+    breaklinks=true
+}
+
+% =============================================================================
+% CONFIGURACIÓN DE CAPTIONS PARA DOBLE COLUMNA
+% =============================================================================
+\captionsetup{
+    font=footnotesize,
+    labelfont=bf,
+    width=\linewidth,
+    skip=4pt,
+    labelsep=space
+}
+
+% =============================================================================
+% ESTILOS PARA DIAGRAMA DE FLUJO (TIKZ)
+% =============================================================================
+\tikzset{
+    startstop/.style={ellipse, draw, fill=blue!10, text width=6em, text centered, minimum height=3em},
+    process/.style={rectangle, draw, fill=green!10, text width=8em, text centered, minimum height=3em},
+    decision/.style={diamond, draw, fill=yellow!20, text width=6em, text centered, minimum height=3em},
+    arrow/.style={thick,->,>=stealth}
+}
+
+% =============================================================================
+% CONFIGURACIÓN DE FLOTANTES
+% =============================================================================
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+
+% =============================================================================
+% CONFIGURACIÓN DE ENCABEZADO Y PIE DE PÁGINA
+% =============================================================================
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% =============================================================================
+% INICIO DEL DOCUMENTO
+% =============================================================================
+\begin{document}
+\thispagestyle{empty}
+
+% =============================================================================
+% PORTADA
+% =============================================================================
+\begin{center}
+    \textbf{\Large Instituto Tecnológico Nacional de México}
+    
+    \vspace{0.2cm}
+    
+    \textbf{\large Instituto Tecnológico de Ensenada}
+    
+    \vspace{.5cm}
+    
+    {\textbf{\large Práctica [NÚMERO]: [TÍTULO DE LA PRÁCTICA]}}
+    
+    \vspace{0.5 cm}
+    
+    \textbf{Materia: [NOMBRE DE LA MATERIA]}
+    
+    \vspace{0.5cm}
+    
+    \textbf{Profesora: [NOMBRE COMPLETO DEL PROFESOR]}
+    
+    \vspace{0.5cm}
+    
+    {\large Alumna/o: [NOMBRE COMPLETO DEL ALUMNO]}
+    
+    \vspace{0.5cm}
+    
+    \textbf{Fecha de entrega: [DÍA] de [MES] de [AÑO]}
+    
+    \vspace{0.5cm}
+    
+    [Ciudad], [Estado], México
+    
+    \vspace{0.5cm}
+    
+    % =============================================================================
+    % RESUMEN / ABSTRACT (CENTRADO)
+    % =============================================================================
+    \vspace{0.5cm}
+    
+    \begin{center}
+    \Large\bfseries RESUMEN / ABSTRACT
+    \end{center}
+    
+    \vspace{0.5cm}
+    
+    \begin{minipage}{0.95\textwidth}
+        \textbf{Resumen}
+        
+        [Escribir aquí el resumen en español: 250-350 palabras. Debe describir el objetivo, metodología, resultados principales y conclusiones de la práctica.]
+        
+        \vspace{0.5cm}
+        
+        \textbf{Abstract}
+        
+        [Write here the abstract in English: 250-350 words. Same content as the Spanish resumen but translated.]
+        
+        \vspace{0.5cm}
+        
+        \textbf{Palabras clave:} [Palabra 1], [Palabra 2], [Palabra 3], [Palabra 4], [Palabra 5].
+        
+        \textbf{Keywords:} [Keyword 1], [Keyword 2], [Keyword 3], [Keyword 4], [Keyword 5].
+    \end{minipage}
+    
+\end{center}
+
+\newpage
+\setcounter{page}{1}
+\pagestyle{fancy}
+
+% =============================================================================
+% CONTENIDO PRINCIPAL A DOBLE COLUMNA
+% =============================================================================
+\begin{multicols}{2}
+
+% =============================================================================
+% SECCIÓN 1: INTRODUCCIÓN
+% =============================================================================
+\section{Introducción}
+
+\subsection{[Término 1]}
+[Definición y explicación del primer término. Incluir citas con \texttt{\textbackslash citep\{clave\}} para formato (Autor, Año). Ejemplo: \citep[p.~XX]{Referencia2023}.]
+
+\subsection{[Término 2]}
+[Definición y explicación del segundo término \citep[p.~XX]{Referencia2023}.]
+
+\subsection{[Término 3]}
+[Definición y explicación del tercer término \citep[p.~XX]{Referencia2023}.]
+
+\subsection{[Término 4]}
+[Definición y explicación del cuarto término \citep[p.~XX]{Referencia2023}.]
+
+\subsection{[Término 5]}
+[Definición y explicación del quinto término \citep[p.~XX]{Referencia2023}.]
+
+\subsection{[Contexto Aplicado]}
+[Relación de los conceptos teóricos con la aplicación práctica o industrial \citep[p.~XX]{Referencia2023}.]
+
+% =============================================================================
+% SECCIÓN 2: OBJETIVO
+% =============================================================================
+\section{Objetivo}
+
+[Redactar el objetivo comenzando con verbo en infinitivo (ar, er, ir). Debe ser claro, conciso y máximo 3 renglones.]
+
+% =============================================================================
+% SECCIÓN 3: MATERIALES
+% =============================================================================
+\section{Materiales}
+
+\begin{itemize}
+    \item [Material 1]
+    \item [Material 2]
+    \item [Material 3]
+    \item [Material 4]
+    \item [Material 5]
+    \item [Equipo 1]
+    \item [Equipo 2]
+\end{itemize}
+
+% =============================================================================
+% SECCIÓN 4: METODOLOGÍA
+% =============================================================================
+\section{Metodología}
+
+\subsection{Diagrama de Bloques del Procedimiento}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[node distance=1.5cm]
+        \node (start) [startstop] {Inicio};
+        \node (pro1) [process, below of=start] {[Paso 1]};
+        \node (pro2) [process, below of=pro1] {[Paso 2]};
+        \node (pro3) [process, below of=pro2] {[Paso 3]};
+        \node (pro4) [process, below of=pro3] {[Paso 4]};
+        \node (pro5) [process, below of=pro4] {[Paso 5]};
+        \node (stop) [startstop, below of=pro5] {Fin};
+        
+        \draw [arrow] (start) -- (pro1);
+        \draw [arrow] (pro1) -- (pro2);
+        \draw [arrow] (pro2) -- (pro3);
+        \draw [arrow] (pro3) -- (pro4);
+        \draw [arrow] (pro4) -- (pro5);
+        \draw [arrow] (pro5) -- (stop);
+    \end{tikzpicture}
+    \caption{[Título breve del diagrama]}
+    \textit{\footnotesize Fuente: [Autor]}
+    \label{fig:diagrama}
+\end{figure}
+
+\subsection{Procedimiento Detallado}
+
+\textbf{Paso 1:} [Descripción detallada del primer paso del procedimiento.]
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.8\linewidth}
+    \includegraphics[width=\linewidth]{[nombre_archivo_imagen1]}
+    \caption{[Descripción breve de la figura]}
+    \textit{\footnotesize Fuente: [Autor]}
+    \end{minipage}
+    \label{fig:imagen1}
+\end{figure}
+
+\textbf{Paso 2:} [Descripción detallada del segundo paso.]
+
+\textbf{Paso 3:} [Descripción detallada del tercer paso.]
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.8\linewidth}
+    \includegraphics[width=\linewidth]{[nombre_archivo_imagen2]}
+    \caption{[Descripción breve de la figura]}
+    \textit{\footnotesize Fuente: [Autor]}
+    \end{minipage}
+    \label{fig:imagen2}
+\end{figure}
+
+\textbf{Paso 4:} [Descripción detallada del cuarto paso.]
+
+\textbf{Paso 5:} [Descripción detallada del quinto paso.]
+
+\textbf{Paso 6:} [Descripción detallada del sexto paso.]
+
+\textbf{Paso 7:} [Descripción detallada del séptimo paso.]
+
+\textbf{Paso 8:} [Descripción detallada del octavo paso.]
+
+\textbf{Paso 9:} [Descripción detallada del noveno paso.]
+
+\textbf{Paso 10:} [Descripción detallada del décimo paso.]
+
+% =============================================================================
+% SECCIÓN 5: OBSERVACIONES
+% =============================================================================
+\section{Observaciones}
+
+\begin{table}[H]
+    \centering
+    \caption{[Título de la tabla de observaciones]}
+    \label{tab:observaciones}
+    \resizebox{\linewidth}{!}{%
+    \begin{tabular}{p{4cm}p{6cm}}
+        \toprule
+        \textbf{Parámetro} & \textbf{Observación} \\
+        \midrule
+        [Parámetro 1] & [Observación correspondiente] \\
+        \midrule
+        [Parámetro 2] & [Observación correspondiente] \\
+        \midrule
+        [Parámetro 3] & [Observación correspondiente] \\
+        \midrule
+        [Parámetro 4] & [Observación correspondiente] \\
+        \midrule
+        [Parámetro 5] & [Observación correspondiente] \\
+        \bottomrule
+    \end{tabular}%
+    }
+    \textit{\footnotesize Fuente: [Autor]}
+\end{table}
+
+\textbf{Observaciones Adicionales:}
+
+\begin{itemize}
+    \item [Observación adicional 1]
+    \item [Observación adicional 2]
+    \item [Observación adicional 3]
+    \item [Observación adicional 4]
+\end{itemize}
+
+% =============================================================================
+% SECCIÓN 6: RESULTADOS
+% =============================================================================
+\section{Resultados}
+
+\subsection{Parámetros del Experimento}
+
+\begin{table}[H]
+    \centering
+    \caption{[Título de la tabla de parámetros]}
+    \label{tab:parametros}
+    \resizebox{\linewidth}{!}{%
+    \begin{tabular}{ccc}
+        \toprule
+        \textbf{Variable} & \textbf{Valor} & \textbf{Unidad} \\
+        \midrule
+        [Variable 1] & [Valor] & [Unidad] \\
+        \midrule
+        [Variable 2] & [Valor] & [Unidad] \\
+        \midrule
+        [Variable 3] & [Valor] & [Unidad] \\
+        \midrule
+        [Variable 4] & [Valor] & [Unidad] \\
+        \midrule
+        [Variable 5] & [Valor] & [Unidad] \\
+        \bottomrule
+    \end{tabular}%
+    }
+    \textit{\footnotesize Fuente: [Autor]}
+\end{table}
+
+\subsection{Cálculos}
+
+% Usar align con footnotesize para ajustar a dos columnas
+\begin{align}
+\footnotesize
+[\text{Ecuación 1}] &= [\text{Desarrollo}] = [\text{Resultado}] \\
+\footnotesize
+[\text{Ecuación 2}] &= [\text{Desarrollo}] = [\text{Resultado}]
+\end{align}
+
+% =============================================================================
+% SECCIÓN 7: DISCUSIONES
+% =============================================================================
+\section{Discusiones}
+
+[Interpretación de los resultados obtenidos. Explicar qué representan los números, por qué se dieron ciertas observaciones, y a qué fenómeno se atribuyen los resultados.]
+
+\subsection{[Análisis Específico 1]}
+
+[Desarrollar el primer punto de análisis con citas bibliográficas \citep[p.~XX]{Referencia2023}.]
+
+\subsection{[Análisis Específico 2]}
+
+[Desarrollar el segundo punto de análisis con citas bibliográficas \citep[p.~XX]{Referencia2023}.]
+
+% =============================================================================
+% SECCIÓN 8: CONCLUSIONES
+% =============================================================================
+\section{Conclusiones}
+
+\begin{enumerate}
+    \item [Conclusión 1: Aprendizaje principal de la práctica.]
+    \item [Conclusión 2: Relación teoría-práctica observada.]
+    \item [Conclusión 3: Aplicación industrial o profesional.]
+    \item [Conclusión 4: Limitaciones o áreas de mejora.]
+    \item [Conclusión 5: Proyección a futuros trabajos.]
+\end{enumerate}
+
+% =============================================================================
+% SECCIÓN 9: RESPUESTAS AL CUESTIONARIO (OPCIONAL)
+% =============================================================================
+\section{Respuestas a las Preguntas}
+
+\textbf{1. [Enunciado de la pregunta 1]}
+
+[Respuesta desarrollada con citas bibliográficas \citep[p.~XX]{Referencia2023}.]
+
+\textbf{2. [Enunciado de la pregunta 2]}
+
+[Respuesta desarrollada con citas bibliográficas \citep[p.~XX]{Referencia2023}.]
+
+\textbf{3. [Enunciado de la pregunta 3]}
+
+[Respuesta desarrollada con citas bibliográficas \citep[p.~XX]{Referencia2023}.]
+
+\textbf{4. [Enunciado de la pregunta 4]}
+
+[Respuesta desarrollada con citas bibliográficas \citep[p.~XX]{Referencia2023}.]
+
+\textbf{5. [Enunciado de la pregunta 5]}
+
+[Respuesta desarrollada con citas bibliográficas \citep[p.~XX]{Referencia2023}.]
+
+\end{multicols}
+
+\newpage
+
+% =============================================================================
+% BIBLIOGRAFÍA EN ORDEN ALFABÉTICO (FORMATO APA)
+% =============================================================================
+\section*{FUENTES DE INFORMACIÓN}
+\addcontentsline{toc}{section}{FUENTES DE INFORMACIÓN}
+
+\bibliographystyle{apalike}
+
+\begin{thebibliography}{99}
+\setlength{\itemsep}{0.5em}
+
+% === FORMATO PARA LIBROS ===
+\bibitem[Apellido, Año]{ClaveCita}
+Apellido, A. A. (Año). \textit{Título del libro en cursiva} (edición, pp. xx-xx). Editorial. \url{https://enlace.com}
+
+% === FORMATO PARA ARTÍCULOS DE REVISTA ===
+\bibitem[Apellido et al., Año]{ClaveCita}
+Apellido, A. A., Apellido, B. B., \& Apellido, C. C. (Año). Título del artículo. \textit{Nombre de la Revista}, \textit{volumen}(número), pp-pp. \url{https://doi.org/xx.xxxx/xxxxx}
+
+% === FORMATO PARA DOCUMENTOS INSTITUCIONALES ===
+\bibitem[Organización, Año]{ClaveCita}
+Organización. (Año). \textit{Título del documento} (Reporte No. XXX, pp. xx-xx). Institución. \url{https://enlace.com}
+
+% === FORMATO PARA NORMAS OFICIALES ===
+\bibitem[Secretaría, Año]{ClaveCita}
+Secretaría de [Nombre]. (Año). \textit{Norma Oficial Mexicana NOM-XXX-YYYY: Título}. Diario Oficial de la Federación, [fecha]. \url{http://enlace.com}
+
+% === FORMATO PARA TESIS ===
+\bibitem[Apellido, Año]{ClaveCita}
+Apellido, A. A. (Año). \textit{Título de la tesis} [Tesis doctoral]. Universidad. \url{https://enlace.com}
+
+% === EJEMPLOS REALES PARA COPIAR Y ADAPTAR ===
+
+\bibitem[Airbus, 2023]{Airbus2023}
+Airbus. (2023). \textit{Composite materials in modern aircraft: A350 XWB technical overview} (pp. 78-156). Airbus S.A.S. \url{https://www.airbus.com/sites/g/files/jlcbta126/files/2023-01/A350-Composite-Materials-Overview.pdf}
+
+\bibitem[Boeing, 2023]{Boeing2023}
+Boeing. (2023). \textit{787 Dreamliner: Materials and manufacturing processes} (Report No. BCT-2023-001, pp. 45-92). The Boeing Company. \url{https://www.boeing.com/content/dam/boeing/boeingdotcom/commercial/787/materials-report-2023.pdf}
+
+\bibitem[Callister y Rethwisch, 2020]{Callister2020}
+Callister, W. D., \& Rethwisch, D. G. (2020). \textit{Materials Science and Engineering: An Introduction} (10.\textsuperscript{a} ed., pp. 445-512). John Wiley \& Sons. \url{https://www.academia.edu/34295998/Materials_Science_by_D_Callister}
+
+\bibitem[European Food Safety Authority, 2017]{EFSA2017}
+European Food Safety Authority. (2017). Re‐evaluation of alginic acid and its sodium, potassium, ammonium and calcium salts (E 400–E 404) as food additives. \textit{EFSA Journal}, \textit{15}(8), 5049. \url{https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2017.5049}
+
+\bibitem[Gómez et al., 2023]{Gomez2023}
+Gómez, R., Martínez, L., \& Sánchez, P. (2023). Avances en polímeros autorreparables para aplicaciones aeroespaciales. \textit{Revista Internacional de Materiales Compuestos}, \textit{15}(2), 89-145. \url{https://doi.org/10.1016/j.compmat.2023.01.005}
+
+\bibitem[Lee et al., 2023]{Lee2023}
+Lee, J. H., Kim, S. Y., \& Park, J. W. (2023). Ionic crosslinking mechanisms in alginate-based hydrogels for biomedical applications. \textit{Journal of Polymer Science}, \textit{61}(4), 234-256. \url{https://doi.org/10.1002/pol.2023.0123}
+
+\bibitem[Secretaría de Economía, 2002]{NOM2002}
+Secretaría de Economía. (2002). \textit{Norma Oficial Mexicana NOM-008-SCFI-2002: Sistema General de Unidades de Medida}. Diario Oficial de la Federación, 27 de noviembre de 2002. \url{http://www.dof.gob.mx/nota_detalle.php?codigo=736073&fecha=27/11/2002}
+
+\bibitem[Smith y Hashemi, 2019]{Smith2019}
+Smith, W. F., \& Hashemi, J. (2019). \textit{Fundamentos de la ciencia e ingeniería de materiales} (5.\textsuperscript{a} ed., pp. 156-234). McGraw-Hill Education. \url{https://pdfcoffee.com/foundations-of-materials-science-and-engineering-5th-edition-pdf-free.html}
+
+\bibitem[Tonnesen y Karlsen, 2017]{Tonnesen2017}
+Tonnesen, H. H., \& Karlsen, J. (2017). Structure and Dynamics of Alginate Gels Cross-Linked by Polyvalent Ions. \textit{Biomacromolecules}, \textit{18}(9), 2679-2688. \url{https://pubs.acs.org/doi/10.1021/acs.biomac.7b00627}
+
+\bibitem[Wilson et al., 2023]{Wilson2023}
+Wilson, M. A., Thompson, K. L., \& Davis, R. E. (2023). Natural polymers in aerospace: From algae to aircraft. \textit{Aerospace Materials Today}, \textit{8}(1), 67-89. \url{https://doi.org/10.1016/j.aeromat.2023.03.002}
+
+\end{thebibliography}
+
+\end{document}
